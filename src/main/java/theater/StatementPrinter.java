@@ -42,15 +42,11 @@ public class StatementPrinter {
 
         for (Performance p : invoice.getPerformances()) {
 
+            // accumulate amount
             totalAmount += getAmount(p);
 
-            // volume credits
-            volumeCredits += Math.max(
-                    p.getAudience() - Constants.BASE_VOLUME_CREDIT_THRESHOLD, 0);
-
-            if ("comedy".equals(getPlay(p).getType())) {
-                volumeCredits += p.getAudience() / Constants.COMEDY_EXTRA_VOLUME_FACTOR;
-            }
+            // volume credits (add only the contribution)
+            volumeCredits += getVolumeCredits(p);
 
             // print line for this order
             result.append("  ")
@@ -61,8 +57,6 @@ public class StatementPrinter {
                     .append(p.getAudience())
                     .append(" seats)")
                     .append(System.lineSeparator());
-
-            totalAmount += getAmount(p);
         }
 
         result.append("Amount owed is ")
@@ -74,6 +68,17 @@ public class StatementPrinter {
                 .append(System.lineSeparator());
 
         return result.toString();
+    }
+
+    // Task 2.2: returns only the contribution for this performance
+    private int getVolumeCredits(Performance performance) {
+        int result = Math.max(
+                performance.getAudience() - Constants.BASE_VOLUME_CREDIT_THRESHOLD, 0);
+
+        if ("comedy".equals(getPlay(performance).getType())) {
+            result += performance.getAudience() / Constants.COMEDY_EXTRA_VOLUME_FACTOR;
+        }
+        return result;
     }
 
     private Play getPlay(Performance performance) {
