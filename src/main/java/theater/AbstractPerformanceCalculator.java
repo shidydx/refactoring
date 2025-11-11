@@ -35,6 +35,14 @@ public abstract class AbstractPerformanceCalculator {
         }
     }
 
+    public Performance getPerformance() {
+        return performance;
+    }
+
+    public Play getPlay() {
+        return play;
+    }
+
     /**
      * Calculates the amount owed for this performance.
      *
@@ -58,4 +66,5 @@ public abstract class AbstractPerformanceCalculator {
         }
         return result;
     }
+
 }
