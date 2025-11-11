@@ -127,12 +127,8 @@ public class StatementPrinter {
      * @return the total amount (in cents)
      */
     public int getTotalAmount(final StatementData data) {
-        int total = 0;
-        for (final Performance p : data.getPerformances()) {
-            final Play play = data.getPlays().get(p.getPlayID());
-            total += getAmount(p, play);
-        }
-        return total;
+        // Delegate to StatementData, which already computes the total
+        return data.totalAmount();
     }
 
     /**
@@ -142,12 +138,8 @@ public class StatementPrinter {
      * @return the total volume credits
      */
     public int getTotalVolumeCredits(final StatementData data) {
-        int total = 0;
-        for (final Performance p : data.getPerformances()) {
-            final Play play = data.getPlays().get(p.getPlayID());
-            total += getVolumeCredits(p, play);
-        }
-        return total;
+        // Delegate to StatementData, which already computes the total credits
+        return data.volumeCredits();
     }
 
 }
