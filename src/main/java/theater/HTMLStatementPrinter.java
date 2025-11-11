@@ -24,8 +24,8 @@ public class HTMLStatementPrinter extends StatementPrinter {
      */
     @Override
     public String statement() {
-        StatementData data = getStatementData();
-        StringBuilder result = new StringBuilder(
+        final StatementData data = getStatementData();
+        final StringBuilder result = new StringBuilder(
                 String.format("<h1>Statement for %s</h1>%n", data.getCustomer())
         );
 
