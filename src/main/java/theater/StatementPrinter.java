@@ -34,7 +34,13 @@ public class StatementPrinter {
         return renderPlainText(statementData);
     }
 
-    /** Phase 2 (rendering only): produce the plain-text output from prepared data. */
+    /**
+     * Renders the prepared statement data in plain text format.
+     *
+     * @param data the prepared statement data
+     * @return the formatted plain-text invoice string
+     */
+
     private String renderPlainText(StatementData data) {
         final StringBuilder result =
                 new StringBuilder("Statement for " + data.getCustomer() + System.lineSeparator());
@@ -62,9 +68,19 @@ public class StatementPrinter {
         return result.toString();
     }
 
-    /** Currency formatter helper (kept here; still fine for now). */
-    private String usd(int amount) {
+    protected StatementData getStatementData() {
+        return statementData;
+    }
+    /**
+     * Formats a numeric amount into US currency for display.
+     *
+     * @param amount the amount in cents
+     * @return the formatted currency string
+     */
+
+    protected String usd(int amount) {
         return NumberFormat.getCurrencyInstance(Locale.US)
                 .format(amount / (double) Constants.PERCENT_FACTOR);
     }
+
 }
