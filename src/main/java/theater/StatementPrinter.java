@@ -38,21 +38,15 @@ public class StatementPrinter {
         final StringBuilder result =
                 new StringBuilder("Statement for " + invoice.getCustomer() + System.lineSeparator());
 
-        final NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
-
         for (Performance p : invoice.getPerformances()) {
 
-            // accumulate amount
             totalAmount += getAmount(p);
-
-            // volume credits (add only the contribution)
             volumeCredits += getVolumeCredits(p);
 
-            // print line for this order
             result.append("  ")
                     .append(getPlay(p).getName())
                     .append(": ")
-                    .append(frmt.format(getAmount(p) / (double) Constants.PERCENT_FACTOR))
+                    .append(usd(getAmount(p)))
                     .append(" (")
                     .append(p.getAudience())
                     .append(" seats)")
@@ -60,7 +54,7 @@ public class StatementPrinter {
         }
 
         result.append("Amount owed is ")
-                .append(frmt.format(totalAmount / (double) Constants.PERCENT_FACTOR))
+                .append(usd(totalAmount))
                 .append(System.lineSeparator())
                 .append("You earned ")
                 .append(volumeCredits)
@@ -70,7 +64,6 @@ public class StatementPrinter {
         return result.toString();
     }
 
-    // Task 2.2: returns only the contribution for this performance
     private int getVolumeCredits(Performance performance) {
         int result = Math.max(
                 performance.getAudience() - Constants.BASE_VOLUME_CREDIT_THRESHOLD, 0);
@@ -111,5 +104,10 @@ public class StatementPrinter {
                         String.format("unknown type: %s", getPlay(performance).getType()));
         }
         return result;
+    }
+
+    private String usd(int amount) {
+        return NumberFormat.getCurrencyInstance(Locale.US)
+                .format(amount / (double) Constants.PERCENT_FACTOR);
     }
 }
