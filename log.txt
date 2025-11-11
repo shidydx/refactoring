@@ -1,10 +1,22 @@
-commit 674bd2ca389145c73deb34731b8155962ce948a1 (HEAD -> main)
+commit cbbb6eb8830bae4b1157fc046e2dec3395e95bec (HEAD -> main, origin/main, origin/HEAD)
+Author: shidydx <shiley.kane@mail.utoronto.ca>
+Date:   Tue Nov 11 16:22:34 2025 -0500
+
+    Task 3.2
+
+commit 92bd8d90cbacc865b7805482561d1b39e8f5e6d2
+Author: shidydx <shiley.kane@mail.utoronto.ca>
+Date:   Tue Nov 11 16:09:50 2025 -0500
+
+    Update log.txt - Task 3.1
+
+commit 674bd2ca389145c73deb34731b8155962ce948a1
 Author: shidydx <shiley.kane@mail.utoronto.ca>
 Date:   Tue Nov 11 16:08:41 2025 -0500
 
     Task 3.1
 
-commit 035366fd2eb148cff2486e18ac95a138058d2da7 (origin/main, origin/HEAD)
+commit 035366fd2eb148cff2486e18ac95a138058d2da7
 Author: shidydx <shiley.kane@mail.utoronto.ca>
 Date:   Tue Nov 11 15:59:56 2025 -0500
 
