@@ -1,2 +1,35 @@
-018510d (HEAD -> main, origin/main, origin/HEAD) Task 1.1
-bd7ca56 Initial commit
+commit 14a8a432aab19efae975a2c96ff6f9feda4b83a2 (HEAD -> main, origin/main, origin/HEAD)
+Author: shidydx <shiley.kane@mail.utoronto.ca>
+Date:   Tue Nov 11 15:53:28 2025 -0500
+
+    Task 2.3
+
+commit cda351fc319ebd96ad31a055813328dc3646ee35
+Author: shidydx <shiley.kane@mail.utoronto.ca>
+Date:   Tue Nov 11 15:23:28 2025 -0500
+
+    Task 2.2
+
+commit dc183d9cbd07dd68601c84ee2ed8c3f30209113f
+Author: shidydx <shiley.kane@mail.utoronto.ca>
+Date:   Tue Nov 11 15:19:13 2025 -0500
+
+    Task 2.1
+
+commit e848b981f25b89774d07b45c7ec18d1dda4fd31c
+Author: shidydx <shiley.kane@mail.utoronto.ca>
+Date:   Mon Nov 10 18:58:19 2025 -0500
+
+    Task 1.2
+
+commit 018510dcf25cb5e70a8d20ffe9e2d2361f146ce4
+Author: shidydx <shiley.kane@mail.utoronto.ca>
+Date:   Mon Nov 10 18:55:00 2025 -0500
+
+    Task 1.1
+
+commit bd7ca5660e1b61ef9ff36ca8146c670567852e94
+Author: shiles 3 <shiley.kane10@gmail.com>
+Date:   Mon Nov 10 14:33:31 2025 -0500
+
+    Initial commit
