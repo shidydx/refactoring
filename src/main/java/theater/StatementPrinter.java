@@ -83,4 +83,71 @@ public class StatementPrinter {
                 .format(amount / (double) Constants.PERCENT_FACTOR);
     }
 
+    /**
+     * Returns the amount owed (in cents) for a single performance.
+     *
+     * @param perf the performance being evaluated
+     * @param play the play for the performance
+     * @return the amount owed in cents
+     */
+    public int getAmount(final Performance perf, final Play play) {
+        return AbstractPerformanceCalculator
+                .createPerformanceCalculator(perf, play)
+                .amountFor();
+    }
+
+    /**
+     * Returns the volume credits for a single performance.
+     *
+     * @param perf the performance being evaluated
+     * @param play the play for the performance
+     * @return the volume credits earned
+     */
+    public int getVolumeCredits(final Performance perf, final Play play) {
+        return AbstractPerformanceCalculator
+                .createPerformanceCalculator(perf, play)
+                .volumeCredits();
+    }
+
+    /**
+     * Looks up a play by id from the provided map.
+     *
+     * @param playID the play identifier
+     * @param plays  the map of play id to {@link Play}
+     * @return the play with the given id, or {@code null} if not found
+     */
+    public Play getPlay(final String playID, final Map<String, Play> plays) {
+        return plays.get(playID);
+    }
+
+    /**
+     * Sums the amounts for all performances in the statement.
+     *
+     * @param data the statement data containing performances and plays
+     * @return the total amount (in cents)
+     */
+    public int getTotalAmount(final StatementData data) {
+        int total = 0;
+        for (final Performance p : data.getPerformances()) {
+            final Play play = data.getPlays().get(p.getPlayID());
+            total += getAmount(p, play);
+        }
+        return total;
+    }
+
+    /**
+     * Sums the volume credits for all performances in the statement.
+     *
+     * @param data the statement data containing performances and plays
+     * @return the total volume credits
+     */
+    public int getTotalVolumeCredits(final StatementData data) {
+        int total = 0;
+        for (final Performance p : data.getPerformances()) {
+            final Play play = data.getPlays().get(p.getPlayID());
+            total += getVolumeCredits(p, play);
+        }
+        return total;
+    }
+
 }
