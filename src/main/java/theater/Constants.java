@@ -4,7 +4,9 @@ package theater;
  * Constants used in this program.
  */
 public final class Constants {
-
+    // play type constants (used in factory and elsewhere)
+    public static final String TYPE_TRAGEDY = "tragedy";
+    public static final String TYPE_COMEDY = "comedy";
     // volume constants
     public static final int BASE_VOLUME_CREDIT_THRESHOLD = 30;
     public static final int COMEDY_EXTRA_VOLUME_FACTOR = 5;
