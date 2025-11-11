@@ -29,8 +29,13 @@ public class StatementData {
             final Play play = plays.get(p.getPlayID());
             final AbstractPerformanceCalculator calculator =
                     AbstractPerformanceCalculator.createPerformanceCalculator(p, play);
-            performances.add(new PerformanceData(p, play, calculator));
+
+            final int amount = calculator.amountFor();
+            final int credits = calculator.volumeCredits();
+
+            performances.add(new PerformanceData(p, play, amount, credits));
         }
+
     }
 
     /**

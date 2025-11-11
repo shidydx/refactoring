@@ -9,21 +9,23 @@ package theater;
 public class PerformanceData {
     private final Performance performance;
     private final Play play;
-    private final AbstractPerformanceCalculator calculator;
+    private final int amount;
+    private final int volumeCredits;
 
     /**
-     * Constructs a PerformanceData row.
+     * Constructs a PerformanceData row with precomputed values.
      *
      * @param performance the underlying performance
      * @param play the play associated with the performance
-     * @param calculator the performance calculator
+     * @param amount the computed amount in cents
+     * @param volumeCredits the computed volume credits
      */
 
-    public PerformanceData(Performance performance, Play play,
-                           AbstractPerformanceCalculator calculator) {
+    public PerformanceData(Performance performance, Play play, int amount, int volumeCredits) {
         this.performance = performance;
         this.play = play;
-        this.calculator = calculator;
+        this.amount = amount;
+        this.volumeCredits = volumeCredits;
     }
 
     /**
@@ -61,7 +63,7 @@ public class PerformanceData {
      * @throws RuntimeException if the play type is unknown
      */
     public int amountFor() {
-        return calculator.amountFor();
+        return amount;
     }
 
     /**
@@ -71,7 +73,7 @@ public class PerformanceData {
      */
 
     public int volumeCredits() {
-        return calculator.volumeCredits();
+        return volumeCredits;
     }
 
 }
