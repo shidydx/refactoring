@@ -1,6 +1,6 @@
-Task 1.1 – setup
-Task 1.2 – checkstyle
-Task 2.1 – factory method
-Task 2.2 – tragedy/comedy calculators
-Task 2.3 – extract constants
-Task 2.4 – javadoc + fixes
+Task 1.1
+Task 1.2
+Task 2.1
+Task 2.2
+Task 2.3
+Task 2.4
