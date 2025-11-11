@@ -32,17 +32,11 @@ public class StatementPrinter {
      * @throws RuntimeException if one of the play types is not known
      */
     public String statement() {
-        int totalAmount = 0;
-        int volumeCredits = 0;
-
         final StringBuilder result =
                 new StringBuilder("Statement for " + invoice.getCustomer() + System.lineSeparator());
 
+        // Loop 1: render each line only (no totals here)
         for (Performance p : invoice.getPerformances()) {
-
-            totalAmount += getAmount(p);
-            volumeCredits += getVolumeCredits(p);
-
             result.append("  ")
                     .append(getPlay(p).getName())
                     .append(": ")
@@ -53,6 +47,10 @@ public class StatementPrinter {
                     .append(System.lineSeparator());
         }
 
+        // Totals (separate “loops” via helpers)
+        final int totalAmount = getTotalAmount();
+        final int volumeCredits = getTotalVolumeCredits();
+
         result.append("Amount owed is ")
                 .append(usd(totalAmount))
                 .append(System.lineSeparator())
@@ -62,6 +60,24 @@ public class StatementPrinter {
                 .append(System.lineSeparator());
 
         return result.toString();
+    }
+
+    // ------- Helpers introduced so far -------
+
+    private int getTotalAmount() {
+        int result = 0;
+        for (Performance p : invoice.getPerformances()) {
+            result += getAmount(p);
+        }
+        return result;
+    }
+
+    private int getTotalVolumeCredits() {
+        int result = 0;
+        for (Performance p : invoice.getPerformances()) {
+            result += getVolumeCredits(p);
+        }
+        return result;
     }
 
     private int getVolumeCredits(Performance performance) {
