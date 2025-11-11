@@ -1,6 +1,25 @@
-Task 1.1
-Task 1.2
-Task 2.1
-Task 2.2
-Task 2.3
-Task 2.4
+5211722 edits
+fc261f4 edits
+343d1fc edits
+5339315 edits
+ff40568 edits
+9da173b edits
+dff5a9e edits
+93a4efa edits
+dd060a6 edits
+ff3c6b6 Task 3.2
+b509e77 Update log.txt - Task 4.1
+aa53689 Task 4.1
+6aab827 Update log.txt - Task 3.2
+cbbb6eb Task 3.2
+92bd8d9 Update log.txt - Task 3.1
+674bd2c Task 3.1
+035366f Update log.txt - Task 2.4
+5643701 Task 2.4
+c9a6bdc update log.txt - Task 2.3
+14a8a43 Task 2.3
+cda351f Task 2.2
+dc183d9 Task 2.1
+e848b98 Task 1.2
+018510d Task 1.1
+bd7ca56 Initial commit
